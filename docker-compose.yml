@@ -1,0 +1,23 @@
+
+
+services:
+  write:
+    build:
+      context: ./write
+    container_name: tp_write
+    volumes:
+      - data_volume:/home/app/write/data
+      - ./write:/home/app/write
+    tty: true
+
+  read:
+    build:
+      context: ./read
+    container_name: tp_read
+    volumes:
+      - data_volume:/home/app/read/data
+      - ./read:/home/app/read
+    tty: true
+
+volumes:
+  data_volume:
